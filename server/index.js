@@ -14,10 +14,12 @@ app.use(express.json());
 
 // Traversy Media
 
-app.use(express.static(path.join(__dirname,'../client/todo-list/build')));
+app.use(express.static(path.join(__dirname + '../client/todo-list/build')));
 app.get('*', (req,res) => {
     // res.sendFile(path.resolve(__dirname, '..','client', 'build', 'index.html'))
+    console.log("something son")
     res.sendFile('/client/todo-list/build/index.html', {root: '/'});
+    
 
 })
 // const _dirname = path.dirname("");
