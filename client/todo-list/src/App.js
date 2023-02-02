@@ -25,7 +25,9 @@ function App() {
       try {
         const res = await axios.get('http://localhost:5500/api/items')
         setListItems(res.data)
-        console.log("render")
+        console.log("like a virgin: " + Array.isArray(listItems))
+
+        console.log("renderss")
       } catch (err) {
         console.log(err)
       }
@@ -77,18 +79,19 @@ const renderUpdateForm = () => (
       </form>
       <div className="todo-listItems">
         {
-          listItems.map(item => (
-          <div className="todo-item">
-            {
-              isUpdating === item._id ? renderUpdateForm() :
-              <>
-                <p className="item-content">{item.item}</p>
-                <button className="update-item" onClick={()=>{setIsUpdating(item._id)}}>Update</button>
-                <button className="delete-item" onClick={() => deleteItem(item._id)}>Delete</button>
-              </>
-            }
-          </div>
-          ))
+          <h1>It works!</h1>
+          // listItems.map(item => (
+          // <div className="todo-item">
+          //   {
+          //     isUpdating === item._id ? renderUpdateForm() :
+          //     <>
+          //       <p className="item-content">{item.item}</p>
+          //       <button className="update-item" onClick={()=>{setIsUpdating(item._id)}}>Update</button>
+          //       <button className="delete-item" onClick={() => deleteItem(item._id)}>Delete</button>
+          //     </>
+          //   }
+          // </div>
+          // ))
         }
         
       </div>
