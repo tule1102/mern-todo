@@ -19,21 +19,9 @@ app.use(express.static(buildPath));
 // build on aws
 console.log("frog " + __dirname)
 
-// app.get("/*", function(req,res){
-//     res.sendFile(
-//         path.join(__dirname, "../client/todo-list/build/index.html")
-//         // function(err) {
-//         //     if (err) {
-//         //         res.status(500).send(err)
-//         //     }
-//         // }
-//     )
-//     // res.sendFile('index.html', {root: _dirname})
-// })
-
-app.get("/*", (req,res) => {
+app.get("*", function(req,res){
     res.sendFile(
-        path.resolve(__dirname, "../client/todo-list/build/index.html")
+        path.join(__dirname, "../client/todo-list/build/index.html")
         // function(err) {
         //     if (err) {
         //         res.status(500).send(err)
@@ -42,6 +30,35 @@ app.get("/*", (req,res) => {
     )
     // res.sendFile('index.html', {root: _dirname})
 })
+
+
+// HEROKU
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static('client/build'));
+  
+//     // This prevents "CANNOT GET /" errors when directly accessing pages from the web.
+//     app.get('*', (req, res) =>
+//     {
+//       console.log("get(*) Entered")
+//       res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+//     });
+//   }
+
+// GeeksforGeeks
+//   app.get('/', function(req, res){
+//     var options = {
+//         root: path.join(__dirname)
+//     };
+     
+//     var fileName = 'Hello.txt';
+//     res.sendFile(fileName, options, function (err) {
+//         if (err) {
+//             next(err);
+//         } else {
+//             console.log('Sent:', fileName);
+//         }
+//     });
+// });
 
 //Port
 const PORT = process.env.PORT || 5500;
