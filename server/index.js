@@ -14,7 +14,8 @@ app.use(express.static(buildPath));
 // build on aws
 app.get("/*", function(req,res){
     res.sendFile(
-        path.join(_dirname, "../client/todo-list/build/index.html"),
+        // path.join(_dirname, "../client/todo-list/build/index.html"),
+        path.resolve('index.html', { root: __dirname }),
         function(err) {
             if (err) {
                 res.status(500).send(err)
