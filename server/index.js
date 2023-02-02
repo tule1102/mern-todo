@@ -19,9 +19,21 @@ app.use(express.static(buildPath));
 // build on aws
 console.log("frog " + __dirname)
 
-app.get("*", function(req,res){
+// app.get("/*", function(req,res){
+//     res.sendFile(
+//         path.join(__dirname, "../client/todo-list/build/index.html")
+//         // function(err) {
+//         //     if (err) {
+//         //         res.status(500).send(err)
+//         //     }
+//         // }
+//     )
+//     // res.sendFile('index.html', {root: _dirname})
+// })
+
+app.get("/*", function(req,res){
     res.sendFile(
-        path.join(__dirname, "../client/todo-list/build/index.html")
+        path.resolve("../client/todo-list/build/index.html", {root: __dirname})
         // function(err) {
         //     if (err) {
         //         res.status(500).send(err)
@@ -30,7 +42,6 @@ app.get("*", function(req,res){
     )
     // res.sendFile('index.html', {root: _dirname})
 })
-
 
 // HEROKU
 // if (process.env.NODE_ENV === 'production') {
