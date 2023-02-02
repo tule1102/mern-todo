@@ -11,13 +11,13 @@ app.use(cors());
 // allows us us to get data into json format
 app.use(express.json());
 
-const _dirname = path.dirname("");
-console.log("rabbit  " + _dirname)
-const buildPath = path.join(_dirname, "../client/todo-list/build");
+// const _dirname = path.dirname("");
+// console.log("rabbit  " + _dirname)
+// const buildPath = path.join(_dirname, "../client/todo-list/build");
 
-app.use(express.static(buildPath));
+// app.use(express.static(buildPath));
 // build on aws
-console.log("frog " + __dirname)
+// console.log("frog " + __dirname)
 
 // app.get("/*", function(req,res){
 //     res.sendFile(
@@ -31,18 +31,23 @@ console.log("frog " + __dirname)
 //     // res.sendFile('index.html', {root: _dirname})
 // })
 
-app.get("/*", function(req,res){
-    res.sendFile(
-        path.resolve("../client/todo-list/build/index.html", {root: __dirname})
-        // function(err) {
-        //     if (err) {
-        //         res.status(500).send(err)
-        //     }
-        // }
-    )
-    // res.sendFile('index.html', {root: _dirname})
-})
+// app.get("/*", function(req,res){
+//     res.sendFile(
+//         path.resolve("../client/todo-list/build/index.html", {root: __dirname})
+//         // function(err) {
+//         //     if (err) {
+//         //         res.status(500).send(err)
+//         //     }
+//         // }
+//     )
+//     // res.sendFile('index.html', {root: _dirname})
+// })
 
+const _dirname = path.resolve()
+app.use(express.static(path.join(_dirname, '../client/todo-list/build')));
+app.get("*",(req,res) => {
+  res.sendFile(path.join(_dirname, '../client/todo-list/build/index.html'));
+})
 // HEROKU
 // if (process.env.NODE_ENV === 'production') {
 //     app.use(express.static('client/build'));
