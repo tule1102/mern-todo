@@ -21,12 +21,13 @@ app.use(express.static(buildPath));
 
 app.get("*", function(req,res){
     res.sendFile(
-        path.join(__dirname, "../client/todo-list/build/index.html")
-        // function(err) {
-        //     if (err) {
-        //         res.status(500).send(err)
-        //     }
-        // }
+        path.join(__dirname, "../client/todo-list/build/index.html"),
+        function(err) {
+            if (err) {
+                res.status(500).send(err)
+                console.log("Error Danger! " + err)
+            }
+        }
     )
     // res.sendFile('index.html', {root: _dirname})
 })
