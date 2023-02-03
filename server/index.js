@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(cors({
-    origin: '*',
+    origin: 'http://3.142.184.95/5500',
     credentials: true
 }))
 
