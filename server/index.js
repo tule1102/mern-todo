@@ -6,7 +6,8 @@ const path = require('path')
 const app = express();
 
 //user cors
-app.use(cors());
+// app.use(cors());
+app.use({credentials: true, origin: true})
 
 // allows us us to get data into json format
 app.use(express.json());
@@ -16,11 +17,7 @@ app.use(express.json());
 //     credentials: true
 // }))
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+
   
 // Traversy Media
 
