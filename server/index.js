@@ -12,13 +12,17 @@ const app = express();
 // allows us us to get data into json format
 app.use(express.json());
 
-app.use(cors({
-    origin: 'http://ec2-3-142-184-95.us-east-2.compute.amazonaws.com',
-    credentials: true
-}))
+// app.use(cors({
+//     origin: 'http://ec2-3-142-184-95.us-east-2.compute.amazonaws.com',
+//     credentials: true
+// }))
 
 // app.use(cors({credentials: true, origin: 'http://3.142.184.95/5500'}));
 
+app.use(cors({
+    origin: 'http://ec2-3-142-184-95.us-east-2.compute.amazonaws.com',
+    methods: ['GET', 'POST']
+  }))
 
 
   
