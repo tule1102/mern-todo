@@ -17,18 +17,21 @@ app.use(express.json());
 //     credentials: true
 // }))
 
-const handler = async (event) => {
-    const response = {
-        statusCode: 200,
-        headers: {
-            "Access-Control-Allow-Headers" : "Content-Type",
-            "Access-Control-Allow-Origin": "http://3.142.184.95",
-            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
-        },
-        body: JSON.stringify('Hello from Lambda!'),
-    };
-    return response;
-};
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested, Content-Type, Accept Authorization"
+    )
+    if (req.method === "OPTIONS") {
+      res.header(
+        "Access-Control-Allow-Methods",
+        "POST, PUT, PATCH, GET, DELETE"
+      )
+      return res.status(200).json({})
+    }
+    next()
+  })
 
 // app.use(cors({credentials: true, origin: 'http://3.142.184.95/5500'}));
 
