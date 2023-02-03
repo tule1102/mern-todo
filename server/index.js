@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-    origin: 'http://3.142.184.95/:195',
+    origin: 'http://ec2-3-142-184-95.us-east-2.compute.amazonaws.com',
     credentials: true
 }))
 
