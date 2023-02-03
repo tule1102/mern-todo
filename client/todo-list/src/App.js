@@ -36,7 +36,6 @@ function App() {
   }, [])
 
 // Delete Items
-
 const deleteItem = async (id) => {
   try {
     const res = await axios.delete(`http://localhost:5500/api/items/${id}`)
