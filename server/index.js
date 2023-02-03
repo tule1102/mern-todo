@@ -7,7 +7,7 @@ const app = express();
 
 //user cors
 // app.use(cors());
-app.use(cors({credentials: true, origin: '*'}))
+// app.use(cors({credentials: true, origin: '*'}))
 
 // allows us us to get data into json format
 app.use(express.json());
@@ -16,6 +16,9 @@ app.use(express.json());
 //     origin: 'http://3.142.184.95/5500',
 //     credentials: true
 // }))
+
+app.use(cors({credentials: true, origin: 'http://3.142.184.95/5500'}));
+
 
 
   
