@@ -11,12 +11,17 @@ app.use(cors());
 // allows us us to get data into json format
 app.use(express.json());
 
-app.use(cors({
-    origin: 'http://3.142.184.95/5500',
-    credentials: true
-}))
+// app.use(cors({
+//     origin: 'http://3.142.184.95/5500',
+//     credentials: true
+// }))
 
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  
 // Traversy Media
 
 // app.use(express.static(path.join(__dirname + '../client/todo-list/build')));
