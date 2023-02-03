@@ -12,10 +12,23 @@ const app = express();
 // allows us us to get data into json format
 app.use(express.json());
 
-app.use(cors({
-    origin: 'http://3.142.184.95',
-    credentials: true
-}))
+// app.use(cors({
+//     origin: 'http://3.142.184.95',
+//     credentials: true
+// }))
+
+const handler = async (event) => {
+    const response = {
+        statusCode: 200,
+        headers: {
+            "Access-Control-Allow-Headers" : "Content-Type",
+            "Access-Control-Allow-Origin": "http://3.142.184.95",
+            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+        },
+        body: JSON.stringify('Hello from Lambda!'),
+    };
+    return response;
+};
 
 // app.use(cors({credentials: true, origin: 'http://3.142.184.95/5500'}));
 
