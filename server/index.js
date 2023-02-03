@@ -12,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 
+
 // Traversy Media
 
 // app.use(express.static(path.join(__dirname + '../client/todo-list/build')));
@@ -21,25 +22,25 @@ app.use(express.json());
 //     res.sendFile('/client/todo-list/build/index.html', {root: '/'});
 // })
 const _dirname = path.dirname("");
-console.log("_dirname is  " + _dirname)
+// console.log("_dirname is  " + _dirname)
 const buildPath = path.join(_dirname, "../client/todo-list/build");
 
 app.use(express.static(buildPath));
-// build on aws
-console.log("__dirname " + __dirname)
+// // build on aws
+// console.log("__dirname " + __dirname)
 
-app.get("/*", function(req,res){
-    res.sendFile(
-        path.join(__dirname, "../client/todo-list/build/index.html"),
-        function(err) {
-            if (err) {
-                res.status(500).send(err)
-                console.log("Error Danger! " + err)
-            }
-        }
-    )
-    // res.sendFile('index.html', {root: _dirname})
-})
+// app.get("/*", function(req,res){
+//     res.sendFile(
+//         path.join(__dirname, "../client/todo-list/build/index.html"),
+//         function(err) {
+//             if (err) {
+//                 res.status(500).send(err)
+//                 console.log("Error Danger! " + err)
+//             }
+//         }
+//     )
+//     // res.sendFile('index.html', {root: _dirname})
+// })
 
 // app.get("/*", function(req,res){
 //     res.sendFile(
@@ -70,23 +71,6 @@ app.get("/*", function(req,res){
 //     });
 //   }
 
-// GeeksforGeeks
-//   app.get('/', function(req, res){
-//     var options = {
-//         root: path.join(__dirname)
-//     };
-     
-//     var fileName = 'Hello.txt';
-//     res.sendFile(fileName, options, function (err) {
-//         if (err) {
-//             next(err);
-//         } else {
-//             console.log('Sent:', fileName);
-//         }
-//     });
-// });
-
-//Port
 const PORT = process.env.PORT || 5500;
 
 
