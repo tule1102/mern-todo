@@ -12,12 +12,12 @@ const app = express();
 // allows us us to get data into json format
 app.use(express.json());
 
-// app.use(cors({
-//     origin: 'http://3.142.184.95/5500',
-//     credentials: true
-// }))
+app.use(cors({
+    origin: 'http://3.142.184.95/195',
+    credentials: true
+}))
 
-app.use(cors({credentials: true, origin: 'http://3.142.184.95/5500'}));
+// app.use(cors({credentials: true, origin: 'http://3.142.184.95/5500'}));
 
 
 
