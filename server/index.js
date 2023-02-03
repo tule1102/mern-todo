@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-    origin: 'http://3.142.184.95/195',
+    origin: 'http://3.142.184.95/:195',
     credentials: true
 }))
 
