@@ -19,10 +19,10 @@ app.use(cors({
 
 // app.use(cors({credentials: true, origin: 'http://3.142.184.95/5500'}));
 
-app.use(cors({
-    origin: 'ec2-3-142-184-95.us-east-2.compute.amazonaws.com/:1',
-    methods: ['GET', 'POST']
-  }))
+// app.use(cors({
+//     origin: 'ec2-3-142-184-95.us-east-2.compute.amazonaws.com/:1',
+//     methods: ['GET', 'POST']
+//   }))
 
 
   
